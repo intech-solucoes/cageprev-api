@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.PrevSystemWeb.Cageprev.Api", "Intech.PrevSystemWeb.Cageprev.Api\Intech.PrevSystemWeb.Cageprev.Api.csproj", "{1A50BDAD-090A-40B3-943E-229E673D6963}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sistema", "Sistema", "{63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{1E5F2139-4163-40F3-BDC2-4DD74060B52C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.Lib.Data", "..\lib\dotnet-lib\Intech.Lib.Data\Intech.Lib.Data.shproj", "{1B8BF169-24E1-48F0-B3BD-EC9FC413B578}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.Lib.Dominios", "..\lib\dotnet-lib\Intech.Lib.Dominios\Intech.Lib.Dominios.shproj", "{6FCB20F6-C048-4F2E-BF16-48D72C8AF407}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.Lib.Util", "..\lib\dotnet-lib\Intech.Lib.Util\Intech.Lib.Util.shproj", "{73968E62-3181-49AC-8C2D-81331534BC6E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Lib.Dapper", "..\Intech.Lib\Intech.Lib.Dapper\Intech.Lib.Dapper.csproj", "{D1002B20-E408-47F9-93C7-624C7E95588A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intech.Lib.Web", "..\Intech.Lib\Intech.Lib.Web\Intech.Lib.Web.csproj", "{6293F2A0-910F-4C5F-8128-F62AB7CB618E}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\lib\dotnet-lib\Intech.Lib.Data\Intech.Lib.Data.projitems*{1b8bf169-24e1-48f0-b3bd-ec9fc413b578}*SharedItemsImports = 13
+		..\lib\dotnet-lib\Intech.Lib.Dominios\Intech.Lib.Dominios.projitems*{6fcb20f6-c048-4f2e-bf16-48d72c8af407}*SharedItemsImports = 13
+		..\lib\dotnet-lib\Intech.Lib.Util\Intech.Lib.Util.projitems*{73968e62-3181-49ac-8c2d-81331534bc6e}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A50BDAD-090A-40B3-943E-229E673D6963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A50BDAD-090A-40B3-943E-229E673D6963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A50BDAD-090A-40B3-943E-229E673D6963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A50BDAD-090A-40B3-943E-229E673D6963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1002B20-E408-47F9-93C7-624C7E95588A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1002B20-E408-47F9-93C7-624C7E95588A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1002B20-E408-47F9-93C7-624C7E95588A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1002B20-E408-47F9-93C7-624C7E95588A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6293F2A0-910F-4C5F-8128-F62AB7CB618E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6293F2A0-910F-4C5F-8128-F62AB7CB618E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6293F2A0-910F-4C5F-8128-F62AB7CB618E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6293F2A0-910F-4C5F-8128-F62AB7CB618E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1B8BF169-24E1-48F0-B3BD-EC9FC413B578} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
+		{6FCB20F6-C048-4F2E-BF16-48D72C8AF407} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
+		{73968E62-3181-49AC-8C2D-81331534BC6E} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
+		{D1002B20-E408-47F9-93C7-624C7E95588A} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
+		{6293F2A0-910F-4C5F-8128-F62AB7CB618E} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C9550A7-3EF3-474E-99A4-C504A1450AAB}
+	EndGlobalSection
+EndGlobal

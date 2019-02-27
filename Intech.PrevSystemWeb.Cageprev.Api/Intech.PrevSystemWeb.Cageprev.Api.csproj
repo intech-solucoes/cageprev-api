@@ -6,8 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intech.Lib.Dapper" Version="1.0.0" />
+    <PackageReference Include="Intech.Lib.Dominios" Version="1.0.0" />
+    <PackageReference Include="Intech.Lib.Util" Version="1.0.0" />
+    <PackageReference Include="Intech.Lib.Web" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
+
+  <Import Project="..\..\ps-web\Intech.PrevSystemWeb.Api\Intech.PrevSystemWeb.Api.projitems" Label="Shared" />
+
+  <Import Project="..\..\ps-web\Intech.PrevSystemWeb.Dados\Intech.PrevSystemWeb.Dados.projitems" Label="Shared" />
+
+  <Import Project="..\..\ps-web\Intech.PrevSystemWeb.Entidades\Intech.PrevSystemWeb.Entidades.projitems" Label="Shared" />
+
+  <Import Project="..\..\ps-web\Intech.PrevSystemWeb.Negocio\Intech.PrevSystemWeb.Negocio.projitems" Label="Shared" />
 
 </Project>

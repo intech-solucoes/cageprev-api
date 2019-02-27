@@ -5,25 +5,22 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.PrevSystemWeb.Cageprev.Api", "Intech.PrevSystemWeb.Cageprev.Api\Intech.PrevSystemWeb.Cageprev.Api.csproj", "{1A50BDAD-090A-40B3-943E-229E673D6963}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sistema", "Sistema", "{63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PrevSystemWeb", "PrevSystemWeb", "{63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{1E5F2139-4163-40F3-BDC2-4DD74060B52C}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.PrevSystemWeb.Dados", "..\ps-web\Intech.PrevSystemWeb.Dados\Intech.PrevSystemWeb.Dados.shproj", "{A963501F-4DEF-44BB-A578-EE1D002C986E}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.Lib.Data", "..\lib\dotnet-lib\Intech.Lib.Data\Intech.Lib.Data.shproj", "{1B8BF169-24E1-48F0-B3BD-EC9FC413B578}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.PrevSystemWeb.Entidades", "..\ps-web\Intech.PrevSystemWeb.Entidades\Intech.PrevSystemWeb.Entidades.shproj", "{C64A8383-F3C7-477F-81F3-F7D8DCDF1397}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.Lib.Dominios", "..\lib\dotnet-lib\Intech.Lib.Dominios\Intech.Lib.Dominios.shproj", "{6FCB20F6-C048-4F2E-BF16-48D72C8AF407}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.PrevSystemWeb.Negocio", "..\ps-web\Intech.PrevSystemWeb.Negocio\Intech.PrevSystemWeb.Negocio.shproj", "{FF05A498-1C45-4D0A-B66F-C8419C3F9CF4}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.Lib.Util", "..\lib\dotnet-lib\Intech.Lib.Util\Intech.Lib.Util.shproj", "{73968E62-3181-49AC-8C2D-81331534BC6E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Lib.Dapper", "..\Intech.Lib\Intech.Lib.Dapper\Intech.Lib.Dapper.csproj", "{D1002B20-E408-47F9-93C7-624C7E95588A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intech.Lib.Web", "..\Intech.Lib\Intech.Lib.Web\Intech.Lib.Web.csproj", "{6293F2A0-910F-4C5F-8128-F62AB7CB618E}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.PrevSystemWeb.Api", "..\ps-web\Intech.PrevSystemWeb.Api\Intech.PrevSystemWeb.Api.shproj", "{22211466-841C-449F-92D8-C387B6938A8E}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\lib\dotnet-lib\Intech.Lib.Data\Intech.Lib.Data.projitems*{1b8bf169-24e1-48f0-b3bd-ec9fc413b578}*SharedItemsImports = 13
-		..\lib\dotnet-lib\Intech.Lib.Dominios\Intech.Lib.Dominios.projitems*{6fcb20f6-c048-4f2e-bf16-48d72c8af407}*SharedItemsImports = 13
-		..\lib\dotnet-lib\Intech.Lib.Util\Intech.Lib.Util.projitems*{73968e62-3181-49ac-8c2d-81331534bc6e}*SharedItemsImports = 13
+		..\ps-web\Intech.PrevSystemWeb.Api\Intech.PrevSystemWeb.Api.projitems*{22211466-841c-449f-92d8-c387b6938a8e}*SharedItemsImports = 13
+		..\ps-web\Intech.PrevSystemWeb.Dados\Intech.PrevSystemWeb.Dados.projitems*{a963501f-4def-44bb-a578-ee1d002c986e}*SharedItemsImports = 13
+		..\ps-web\Intech.PrevSystemWeb.Entidades\Intech.PrevSystemWeb.Entidades.projitems*{c64a8383-f3c7-477f-81f3-f7d8dcdf1397}*SharedItemsImports = 13
+		..\ps-web\Intech.PrevSystemWeb.Negocio\Intech.PrevSystemWeb.Negocio.projitems*{ff05a498-1c45-4d0a-b66f-c8419c3f9cf4}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,24 +31,15 @@ Global
 		{1A50BDAD-090A-40B3-943E-229E673D6963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A50BDAD-090A-40B3-943E-229E673D6963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A50BDAD-090A-40B3-943E-229E673D6963}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1002B20-E408-47F9-93C7-624C7E95588A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1002B20-E408-47F9-93C7-624C7E95588A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1002B20-E408-47F9-93C7-624C7E95588A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1002B20-E408-47F9-93C7-624C7E95588A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6293F2A0-910F-4C5F-8128-F62AB7CB618E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6293F2A0-910F-4C5F-8128-F62AB7CB618E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6293F2A0-910F-4C5F-8128-F62AB7CB618E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6293F2A0-910F-4C5F-8128-F62AB7CB618E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1B8BF169-24E1-48F0-B3BD-EC9FC413B578} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
-		{6FCB20F6-C048-4F2E-BF16-48D72C8AF407} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
-		{73968E62-3181-49AC-8C2D-81331534BC6E} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
-		{D1002B20-E408-47F9-93C7-624C7E95588A} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
-		{6293F2A0-910F-4C5F-8128-F62AB7CB618E} = {1E5F2139-4163-40F3-BDC2-4DD74060B52C}
+		{A963501F-4DEF-44BB-A578-EE1D002C986E} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
+		{C64A8383-F3C7-477F-81F3-F7D8DCDF1397} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
+		{FF05A498-1C45-4D0A-B66F-C8419C3F9CF4} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
+		{22211466-841C-449F-92D8-C387B6938A8E} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C9550A7-3EF3-474E-99A4-C504A1450AAB}

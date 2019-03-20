@@ -59,23 +59,23 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
             }
         }
 
-        //[HttpPost("criarAcessoIntech")]
-        //[AllowAnonymous]
-        //public IActionResult CriarAcessoIntech([FromBody] dynamic data)
-        //{
-        //    try
-        //    {
-        //        string cpf = data.Cpf.Value;
-        //        string chave = data.Chave.Value;
-        //        new UsuarioProxy().CriarAcessoIntech(cpf, chave);
+        [HttpPost("criarAcessoIntech")]
+        [AllowAnonymous]
+        public IActionResult CriarAcessoIntech([FromBody] dynamic data)
+        {
+            try
+            {
+                string cpf = data.Cpf.Value;
+                string chave = data.Chave.Value;
+                new UsuarioProxy().CriarAcessoIntech(cpf, chave);
 
-        //        return Ok();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpPost("alterarSenha")]
         [Authorize("Bearer")]

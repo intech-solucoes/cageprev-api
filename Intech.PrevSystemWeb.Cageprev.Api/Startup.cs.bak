@@ -1,4 +1,4 @@
-#region Usings
+﻿#region Usings
 using Intech.Lib.Web.JWT;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -29,7 +29,7 @@ namespace Intech.PrevSystemWeb.Cageprev.Api
         {
             services
                 .AddCors()
-                .AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver())
+                .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(jsonOptions =>
                 {

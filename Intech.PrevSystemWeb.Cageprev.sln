@@ -9,17 +9,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PrevSystemWeb", "PrevSystem
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.PrevSystemWeb.Dados", "..\ps-web\Intech.PrevSystemWeb.Dados\Intech.PrevSystemWeb.Dados.shproj", "{A963501F-4DEF-44BB-A578-EE1D002C986E}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.PrevSystemWeb.Entidades", "..\ps-web\Intech.PrevSystemWeb.Entidades\Intech.PrevSystemWeb.Entidades.shproj", "{C64A8383-F3C7-477F-81F3-F7D8DCDF1397}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.PrevSystemWeb.Negocio", "..\ps-web\Intech.PrevSystemWeb.Negocio\Intech.PrevSystemWeb.Negocio.shproj", "{FF05A498-1C45-4D0A-B66F-C8419C3F9CF4}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intech.PrevSystemWeb.Api", "..\ps-web\Intech.PrevSystemWeb.Api\Intech.PrevSystemWeb.Api.shproj", "{22211466-841C-449F-92D8-C387B6938A8E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.PrevSystemWeb.Entidades", "..\ps-web\Intech.PrevSystemWeb.Entidades\Intech.PrevSystemWeb.Entidades.csproj", "{081D540D-88FF-45C4-AF94-527A01B3EF69}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\ps-web\Intech.PrevSystemWeb.Api\Intech.PrevSystemWeb.Api.projitems*{22211466-841c-449f-92d8-c387b6938a8e}*SharedItemsImports = 13
 		..\ps-web\Intech.PrevSystemWeb.Dados\Intech.PrevSystemWeb.Dados.projitems*{a963501f-4def-44bb-a578-ee1d002c986e}*SharedItemsImports = 13
-		..\ps-web\Intech.PrevSystemWeb.Entidades\Intech.PrevSystemWeb.Entidades.projitems*{c64a8383-f3c7-477f-81f3-f7d8dcdf1397}*SharedItemsImports = 13
 		..\ps-web\Intech.PrevSystemWeb.Negocio\Intech.PrevSystemWeb.Negocio.projitems*{ff05a498-1c45-4d0a-b66f-c8419c3f9cf4}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,15 +30,19 @@ Global
 		{1A50BDAD-090A-40B3-943E-229E673D6963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A50BDAD-090A-40B3-943E-229E673D6963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A50BDAD-090A-40B3-943E-229E673D6963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081D540D-88FF-45C4-AF94-527A01B3EF69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081D540D-88FF-45C4-AF94-527A01B3EF69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081D540D-88FF-45C4-AF94-527A01B3EF69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081D540D-88FF-45C4-AF94-527A01B3EF69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A963501F-4DEF-44BB-A578-EE1D002C986E} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
-		{C64A8383-F3C7-477F-81F3-F7D8DCDF1397} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
 		{FF05A498-1C45-4D0A-B66F-C8419C3F9CF4} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
 		{22211466-841C-449F-92D8-C387B6938A8E} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
+		{081D540D-88FF-45C4-AF94-527A01B3EF69} = {63818DC8-CD9D-4F1C-AB9A-62C7DB4F9BC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C9550A7-3EF3-474E-99A4-C504A1450AAB}

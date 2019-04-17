@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Globalization;
+using System.Linq;
 #endregion
 
 namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
@@ -44,14 +45,37 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
             }
         }
 
-        [HttpGet("porProcessoCompetencia/{sqProcesso}/{competencia}")]
+        [HttpGet("porProcessoReferencia/{sqProcesso}/{referencia}")]
         [Authorize("Bearer")]
-        public IActionResult GetPorPlano(int sqProcesso, string competencia)
+        public IActionResult GetPorPlano(int sqProcesso, string referencia)
         {
             try
             {
-                var dtCompetencia = DateTime.ParseExact(competencia, "dd.MM.yyyy", new CultureInfo("pt-BR"));
-                return Json(new FichaFinancAssistidoProxy().BuscarRubricasPorProcessoCompetencia(sqProcesso, dtCompetencia));
+                var dtReferencia = DateTime.ParseExact(referencia, "dd.MM.yyyy", new CultureInfo("pt-BR"));
+                return Json(new FichaFinancAssistidoProxy().BuscarRubricasPorProcessoReferencia(sqProcesso, dtReferencia));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("contrachequePorProcessoReferencia/{sqProcesso}/{referencia}")]
+        [Authorize("Bearer")]
+        public IActionResult GetContracheque(int sqProcesso, string referencia)
+        {
+            try
+            {
+                var dtReferencia = DateTime.ParseExact(referencia, "dd.MM.yyyy", new CultureInfo("pt-BR"));
+                var plano = new PlanoVinculadoProxy().BuscarPorContratoTrabalho(SqContratoTrabalho).First();
+
+                return Json(new
+                {
+                    DadosPessoais = new DadosPessoaisProxy().BuscarTodosPorCdPessoa(CdPessoa),
+                    Plano = plano,
+                    Processo = new ProcessoBeneficioProxy().BuscarPorProcesso(sqProcesso),
+                    Contracheque = new FichaFinancAssistidoProxy().BuscarRelatorioContracheque(sqProcesso, dtReferencia)
+                });
             }
             catch (Exception ex)
             {

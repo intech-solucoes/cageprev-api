@@ -21,8 +21,7 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
             try
             {
                 var proxy = new FichaContribPrevidencialProxy();
-                var dataUltimaContribuicao = proxy.BuscarDataUltimaContribuicao(SqContratoTrabalho, plano);
-                return Json(proxy.BuscarPorContratoPlanoReferencia(SqContratoTrabalho, plano, dataUltimaContribuicao));
+                return Json(proxy.BuscarUltimaPorContratoPlano(SqContratoTrabalho, plano));
             }
             catch (Exception ex)
             {

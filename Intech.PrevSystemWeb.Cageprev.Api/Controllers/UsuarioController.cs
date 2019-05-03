@@ -5,7 +5,8 @@ using Intech.PrevSystemWeb.Negocio.Proxy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System.Linq;
 #endregion
 
 namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
@@ -94,6 +95,43 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
             }
         }
 
+        [HttpGet("menu")]
+        [Authorize("Bearer")]
+        public IActionResult Menu()
+        {
+            try
+            {
+                var dadosPlano = new PlanoVinculadoProxy().BuscarPorContratoTrabalho(SqContratoTrabalho).First();
+
+                var menuAtivos = new List<string> {
+                    "home",
+                    "dados",
+                    "plano",
+                    "emprestimos",
+                    "trocarSenha",
+                    "relacionamento"
+                };
+
+                var menuAssistidos = new List<string> {
+                    "home",
+                    "dados",
+                    "beneficios",
+                    "emprestimos",
+                    "trocarSenha",
+                    "relacionamento"
+                };
+
+                if (dadosPlano.IsAtivo())
+                    return Json(menuAtivos);
+                else
+                    return Json(menuAssistidos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         private IActionResult MontarToken(SigningConfigurations signingConfigurations, TokenConfigurations tokenConfigurations, string cpf, string senha)
         {
             var usuario = new UsuarioProxy().BuscarPorLoginSenha(cpf, senha);
@@ -108,6 +146,10 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
                 if (pensionista)
                 {
                     var processo = new ProcessoBeneficioProxy().BuscarPorCdPessoa(usuario.CD_PESSOA.Value);
+
+                    if (processo == null)
+                        throw new Exception("Nenhum processo em manutenção encontrado!");
+
                     sqContratoTrabalho = processo.SQ_CONTRATO_TRABALHO.ToString();
                 }
                 else
@@ -138,7 +180,7 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
             }
             else
             {
-                throw new Exception("Matrícula ou senha incorretos!");
+                throw new Exception("CPF ou senha incorretos!");
             }
         }
     }

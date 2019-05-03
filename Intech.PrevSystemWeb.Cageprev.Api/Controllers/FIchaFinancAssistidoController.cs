@@ -1,5 +1,6 @@
 ﻿#region Usings
 using Intech.PrevSystemWeb.Api;
+using Intech.PrevSystemWeb.Entidades;
 using Intech.PrevSystemWeb.Negocio.Proxy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -69,9 +70,16 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
                 var dtReferencia = DateTime.ParseExact(referencia, "dd.MM.yyyy", new CultureInfo("pt-BR"));
                 var plano = new PlanoVinculadoProxy().BuscarPorContratoTrabalho(SqContratoTrabalho).First();
 
+                DadosPessoaisEntidade dadosPessoais;
+
+                if (Pensionista)
+                    dadosPessoais = new DadosPessoaisProxy().BuscarPensionistaTodosPorCdPessoa(CdPessoa);
+                else
+                    dadosPessoais = new DadosPessoaisProxy().BuscarTodosPorCdPessoa(CdPessoa);
+
                 return Json(new
                 {
-                    DadosPessoais = new DadosPessoaisProxy().BuscarTodosPorCdPessoa(CdPessoa),
+                    DadosPessoais = dadosPessoais,
                     Plano = plano,
                     Processo = new ProcessoBeneficioProxy().BuscarPorProcesso(sqProcesso),
                     Contracheque = new FichaFinancAssistidoProxy().BuscarRelatorioContracheque(sqProcesso, dtReferencia)

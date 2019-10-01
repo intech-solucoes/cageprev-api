@@ -1,6 +1,7 @@
 ﻿#region Usings
 using Intech.Lib.Web.JWT;
 using Intech.PrevSystemWeb.Api;
+using Intech.PrevSystemWeb.Entidades;
 using Intech.PrevSystemWeb.Negocio.Proxy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,30 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
     [ApiController]
     public class UsuarioController : BaseController
     {
+
+        /// <summary>
+        /// Verifica se o usuário é administrador.
+        /// 
+        /// Rota: [GET] /usuario/admin
+        /// </summary>
+        /// <returns>Retorna true caso o usuário seja administrador</returns>
+        [HttpGet("admin")]
+        [Authorize("Bearer")]
+        public IActionResult GetAdmin()
+        {
+            try
+        {
+                if (Admin)
+                    return Json(true);
+                else
+                    return Json(false);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost("login")]
         [AllowAnonymous]
         public IActionResult Login(
@@ -132,56 +157,104 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
             }
         }
 
-        private IActionResult MontarToken(SigningConfigurations signingConfigurations, TokenConfigurations tokenConfigurations, string cpf, string senha)
+        [HttpPost("pesquisar")]
+        [Authorize("Bearer")]
+        public IActionResult Pesquisar([FromBody] DadosPesquisa dadosPesquisa)
         {
-            var usuario = new UsuarioProxy().BuscarPorLoginSenha(cpf, senha);
-
-            if (usuario != null)
+            try
             {
-                var grupo = new UsuarioGrupoProxy().BuscarPorUsuario(usuario.USR_CODIGO);
-                bool pensionista = grupo != null && grupo.GRP_CODIGO == 32 ? true : false;
+                if (string.IsNullOrEmpty(dadosPesquisa.Cpf))
+                    dadosPesquisa.Cpf = null;
 
-                string sqContratoTrabalho;
+                if (string.IsNullOrEmpty(dadosPesquisa.Nome))
+                    dadosPesquisa.Nome = null;
 
-                if (pensionista)
-                {
-                    var processo = new ProcessoBeneficioProxy().BuscarPorCdPessoa(usuario.CD_PESSOA.Value);
+                return Json(new PessoaFisicaProxy().BuscarPorCpfOuNome(dadosPesquisa.Cpf, dadosPesquisa.Nome));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
-                    if (processo == null)
-                        throw new Exception("Nenhum processo em manutenção encontrado!");
+        [HttpPost("selecionar")]
+        [Authorize("Bearer")]
+        public IActionResult Selecionar(
+            [FromServices] SigningConfigurations signingConfigurations,
+            [FromServices] TokenConfigurations tokenConfigurations, 
+            [FromBody] DadosPesquisa dadosPesquisa)
+        {
+            try
+            {
+                return MontarToken(signingConfigurations, tokenConfigurations, dadosPesquisa.Cpf, "", true);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
-                    sqContratoTrabalho = processo.SQ_CONTRATO_TRABALHO.ToString();
-                }
-                else
-                {
-                    var dadosPessoais = new DadosPessoaisProxy().BuscarPorCdPessoa(usuario.CD_PESSOA.Value);
-                    sqContratoTrabalho = dadosPessoais.SQ_CONTRATO_TRABALHO.ToString();
-                }
+        private IActionResult MontarToken(SigningConfigurations signingConfigurations, TokenConfigurations tokenConfigurations, string cpf, string senha, bool semSenha = false)
+        {
+            int? cdPessoa;
+            string admin = "N";
 
-                var claims = new List<KeyValuePair<string, string>> {
-                    new KeyValuePair<string, string>("Cpf", usuario.USR_LOGIN),
-                    new KeyValuePair<string, string>("CdPessoa", usuario.CD_PESSOA.ToString()),
-                    new KeyValuePair<string, string>("Admin", usuario.USR_ADMINISTRADOR),
-                    new KeyValuePair<string, string>("SqContratoTrabalho", sqContratoTrabalho),
-                    new KeyValuePair<string, string>("Pensionista", pensionista.ToString())
-                };
-
-                var token = AuthenticationToken.Generate(signingConfigurations, tokenConfigurations, usuario.USR_LOGIN, claims);
-                return Json(new
-                {
-                    token.AccessToken,
-                    token.Authenticated,
-                    token.Created,
-                    token.Expiration,
-                    token.Message,
-                    pensionista
-                });
-
+            if (semSenha)
+            {
+                var pessoaFisica = new PessoaFisicaProxy().BuscarPorCPF(cpf);
+                cdPessoa = pessoaFisica.CD_PESSOA;
             }
             else
             {
-                throw new Exception("CPF ou senha incorretos!");
+                var usuario = new UsuarioProxy().BuscarPorLoginSenha(cpf, senha);
+                if(usuario == null)
+                    throw new Exception("CPF ou senha incorretos!");
+
+                cdPessoa = usuario.CD_PESSOA;
+                admin = usuario.USR_ADMINISTRADOR;
             }
+
+            //var grupo = new UsuarioGrupoProxy().BuscarPorUsuario(usuario.USR_CODIGO);
+            //bool pensionista = grupo != null && grupo.GRP_CODIGO == 32 ? true : false;
+
+            bool pensionista = false;
+            string sqContratoTrabalho;
+
+            var dadosPessoais = new DadosPessoaisProxy().BuscarPorCdPessoa(cdPessoa.Value);
+            sqContratoTrabalho = dadosPessoais.SQ_CONTRATO_TRABALHO.ToString();
+
+            var processo = new ProcessoBeneficioProxy().BuscarPorCdPessoa(cdPessoa.Value);
+
+            if (processo != null)
+            {
+                pensionista = true;
+                sqContratoTrabalho = processo.SQ_CONTRATO_TRABALHO.ToString();
+            }
+
+            var claims = new List<KeyValuePair<string, string>> {
+                new KeyValuePair<string, string>("Cpf", cpf),
+                new KeyValuePair<string, string>("CdPessoa", cdPessoa.Value.ToString()),
+                new KeyValuePair<string, string>("Admin", admin),
+                new KeyValuePair<string, string>("SqContratoTrabalho", sqContratoTrabalho),
+                new KeyValuePair<string, string>("Pensionista", pensionista.ToString())
+            };
+
+            var token = AuthenticationToken.Generate(signingConfigurations, tokenConfigurations, cpf, claims);
+            return Json(new
+            {
+                token.AccessToken,
+                token.Authenticated,
+                token.Created,
+                token.Expiration,
+                token.Message,
+                pensionista
+            });
         }
+    }
+
+    public class DadosPesquisa
+    {
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
     }
 }

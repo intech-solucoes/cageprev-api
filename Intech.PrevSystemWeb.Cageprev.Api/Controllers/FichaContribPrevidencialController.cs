@@ -38,7 +38,7 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
                 var planoVinculado = new PlanoVinculadoProxy().BuscarPorContratoTrabalhoPlano(SqContratoTrabalho, plano);
                 var planoPrevidencial = new PlanoPrevidencialProxy().BuscarPorPlano(plano);
 
-                var saldos = new FichaContribPrevidencialProxy().BuscarSaldoPorContratoPlano(SqContratoTrabalho, plano);
+                var saldos = new FichaContribPrevidencialProxy().BuscarSaldoPorContratoPlano(SqContratoTrabalho, plano, 1, 2);
                 var bruto = saldos.First().VL_ATUALIZADO;
 
                 var IRRF = 0M;

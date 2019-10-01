@@ -6,14 +6,16 @@
         <Version>0.2.0</Version>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Intech.Lib.Dapper" Version="1.0.0" />
-        <PackageReference Include="Intech.Lib.Dominios" Version="1.0.0" />
-        <PackageReference Include="Intech.Lib.Util" Version="1.0.1" />
-        <PackageReference Include="Intech.Lib.Web" Version="1.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
         <PackageReference Include="OpenHtmlToPdf" Version="1.12.0" />
     </ItemGroup>
     <ItemGroup>
+        <ProjectReference Include="..\..\Intech.Lib\Intech.Lib.Dapper\Intech.Lib.Dapper.csproj" />
+        <ProjectReference Include="..\..\Intech.Lib\Intech.Lib.Dominios\Intech.Lib.Dominios.csproj" />
+        <ProjectReference Include="..\..\Intech.Lib\Intech.Lib.Email\Intech.Lib.Email.csproj" />
+        <ProjectReference Include="..\..\Intech.Lib\Intech.Lib.Util\Intech.Lib.Util.csproj" />
+        <ProjectReference Include="..\..\Intech.Lib\Intech.Lib.Web\Intech.Lib.Web.csproj" />
         <ProjectReference Include="..\..\ps-web\Intech.PrevSystemWeb.Entidades\Intech.PrevSystemWeb.Entidades.csproj" />
     </ItemGroup>
     <ItemGroup>

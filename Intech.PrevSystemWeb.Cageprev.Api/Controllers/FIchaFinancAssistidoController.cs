@@ -35,10 +35,7 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
         {
             try
             {
-                var quantidadeMesesContraCheque = 18;
-                var dtReferencia = DateTime.Today.PrimeiroDiaDoMes().AddMonths(-quantidadeMesesContraCheque);
-
-                return Json(new FichaFinancAssistidoProxy().BuscarDatasPorProcesso(sqProcesso, dtReferencia));
+                return Json(new FichaFinancAssistidoProxy().BuscarDatasPorProcesso(sqProcesso));
             }
             catch (Exception ex)
             {

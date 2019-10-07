@@ -27,7 +27,7 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
                     $"Nome: {usuario.NO_PESSOA}<br/>" +
                     $"E-mail: {relacionamentoEntidade.Email}<br/>" +
                     $"Mensagem: {relacionamentoEntidade.Mensagem}";
-                EnvioEmail.EnviarMailKit(emailConfig, emailConfig.EmailRelacionamento, $"Cageprev - {relacionamentoEntidade.Assunto}", corpoEmail);
+                EnvioEmail.Enviar(emailConfig, emailConfig.EmailRelacionamento, $"Cageprev - {relacionamentoEntidade.Assunto}", corpoEmail);
 
                 return Ok();
             }

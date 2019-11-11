@@ -201,7 +201,7 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
 
             if (semSenha)
             {
-                var pessoaFisica = new PessoaFisicaProxy().BuscarPorCPF(cpf);
+                var pessoaFisica = new PessoaFisicaProxy().BuscarPorCPF(cpf).FirstOrDefault();
                 cdPessoa = pessoaFisica.CD_PESSOA;
             }
             else
@@ -223,7 +223,7 @@ namespace Intech.PrevSystemWeb.Cageprev.Api.Controllers
             var dadosPessoais = new DadosPessoaisProxy().BuscarPorCdPessoa(cdPessoa.Value);
             sqContratoTrabalho = dadosPessoais.SQ_CONTRATO_TRABALHO.ToString();
 
-            var processo = new ProcessoBeneficioProxy().BuscarPorCdPessoa(cdPessoa.Value);
+            var processo = new ProcessoBeneficioProxy().BuscarPorCdPessoa(cdPessoa.Value).FirstOrDefault();
 
             if (processo != null)
             {

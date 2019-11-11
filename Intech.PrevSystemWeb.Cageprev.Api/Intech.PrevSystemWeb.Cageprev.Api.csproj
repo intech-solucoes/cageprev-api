@@ -6,6 +6,15 @@
         <Version>0.2.0</Version>
     </PropertyGroup>
     <ItemGroup>
+      <None Remove="Relatorios\ExtratoDeEmprestimo.repx" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Relatorios\ExtratoDeEmprestimo.repx">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DevExpress.Reporting.Core" Version="18.1.12" />
         <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
         <PackageReference Include="OpenHtmlToPdf" Version="1.12.0" />
@@ -17,6 +26,7 @@
         <ProjectReference Include="..\..\Intech.Lib\Intech.Lib.Util\Intech.Lib.Util.csproj" />
         <ProjectReference Include="..\..\Intech.Lib\Intech.Lib.Web\Intech.Lib.Web.csproj" />
         <ProjectReference Include="..\..\ps-web\Intech.PrevSystemWeb.Entidades\Intech.PrevSystemWeb.Entidades.csproj" />
+        <ProjectReference Include="..\Intech.PrevSystemWeb.Cageprev.Negocio\Intech.PrevSystemWeb.Cageprev.Negocio.csproj" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="mscorlib">
@@ -28,6 +38,9 @@
         <Reference Include="System.Runtime.Serialization">
             <HintPath>System.Runtime.Serialization</HintPath>
         </Reference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Imagens\" />
     </ItemGroup>
     <Import Project="..\..\ps-web\Intech.PrevSystemWeb.Api\Intech.PrevSystemWeb.Api.projitems" Label="Shared" />
     <Import Project="..\..\ps-web\Intech.PrevSystemWeb.Dados\Intech.PrevSystemWeb.Dados.projitems" Label="Shared" />

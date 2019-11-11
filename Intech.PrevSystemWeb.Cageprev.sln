@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Lib.Email", "..\Inte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Lib.Util", "..\Intech.Lib\Intech.Lib.Util\Intech.Lib.Util.csproj", "{C905516B-B7E7-48C1-B944-0C58CD6F7882}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intech.PrevSystemWeb.Cageprev.Negocio", "Intech.PrevSystemWeb.Cageprev.Negocio\Intech.PrevSystemWeb.Cageprev.Negocio.csproj", "{3D257A25-2B97-4406-8A24-B2EC0E3BB2C1}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\ps-web\Intech.PrevSystemWeb.Api\Intech.PrevSystemWeb.Api.projitems*{22211466-841c-449f-92d8-c387b6938a8e}*SharedItemsImports = 13
@@ -66,6 +68,10 @@ Global
 		{C905516B-B7E7-48C1-B944-0C58CD6F7882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C905516B-B7E7-48C1-B944-0C58CD6F7882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C905516B-B7E7-48C1-B944-0C58CD6F7882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D257A25-2B97-4406-8A24-B2EC0E3BB2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D257A25-2B97-4406-8A24-B2EC0E3BB2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D257A25-2B97-4406-8A24-B2EC0E3BB2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D257A25-2B97-4406-8A24-B2EC0E3BB2C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
